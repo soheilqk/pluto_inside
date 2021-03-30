@@ -34,8 +34,8 @@ class MyCheckBox extends StatelessWidget {
             return onChange(value);
           },
           child: SizedBox(
-            height: 12,
-            width: 12,
+            height: 14,
+            width: 14,
             child: checkIcon,
           ),
         ),
