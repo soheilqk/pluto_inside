@@ -24,7 +24,7 @@ class PlutoScaledCheckbox extends StatelessWidget {
     this.scale = 1.0,
     this.unselectedColor = Colors.black26,
     this.activeColor = Colors.lightBlue,
-    this.checkColor = const Color(0xFFDCF5FF),
+    this.checkColor = const Color(0x00ffffff),
   }) : super(key: key);
 
   @override
