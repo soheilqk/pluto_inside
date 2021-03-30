@@ -5,7 +5,7 @@ homepage: https://bosskmk.github.io
 repository: https://github.com/bosskmk/pluto_inside
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
