@@ -16,3 +16,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+assets:
+  - assets/icons/checkBoxFilled.png
+  - assets/icons/checkBoxEmpty.png
+  - assets/icons/radioEmpty.png
