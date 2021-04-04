@@ -31,7 +31,7 @@ class MyCheckBox extends StatelessWidget {
         InkWell(
           onTap: () {
             var value = checkExpr == null ? true : !checkExpr;
-            return onChange(value);
+            onChange(value);
           },
           child: SizedBox(
             height: 14,
