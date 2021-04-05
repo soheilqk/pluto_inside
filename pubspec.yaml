@@ -18,6 +18,6 @@ dev_dependencies:
     sdk: flutter
 
 assets:
-  - assets/icons/checkBoxFilled.png
-  - assets/icons/checkBoxEmpty.png
-  - assets/icons/radioEmpty.png
+  - assets/images/icons/checkBoxFilled.png
+  - assets/images/icons/checkBoxEmpty.png
+  - assets/images/icons/radioEmpty.png
