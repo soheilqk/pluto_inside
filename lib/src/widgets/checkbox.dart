@@ -13,7 +13,7 @@ class MyCheckBox extends StatelessWidget {
   });
 
   Image get checkIcon => checkExpr == null
-      ? Image.asset('assets/images/icons/radioEmpty.png')
+      ? Image.asset('assets/images/icons/checkBoxEmpty.png')
       : checkExpr
       ? Image.asset('assets/images/icons/checkBoxFilled.png')
       : Image.asset('assets/images/icons/checkBoxEmpty.png');
