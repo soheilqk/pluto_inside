@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class MyCheckBox extends StatelessWidget {
 //
-  final String label;
+  //final String label;
   final bool checkExpr;
   final Function onChange;
 
   const MyCheckBox({
-    @required this.label,
+    //@required this.label,
     @required this.checkExpr,
     @required this.onChange,
   });
@@ -26,8 +26,6 @@ class MyCheckBox extends StatelessWidget {
       textBaseline: TextBaseline.alphabetic,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(label),
-        SizedBox(width: 8),
         InkWell(
           onTap: () {
             var value = checkExpr == null ? true : !checkExpr;
