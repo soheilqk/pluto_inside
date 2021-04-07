@@ -18,7 +18,7 @@ const Duration _kScrollbarResizeDuration = Duration(milliseconds: 100);
 
 // Extracted from iOS 13.1 beta using Debug View Hierarchy.
 const Color _kScrollbarColor = CupertinoDynamicColor.withBrightness(
-  color: Color(0x59000000),
+  color: Color(0xff03C7C3),
   darkColor: Color(0x80FFFFFF),
 );
 
