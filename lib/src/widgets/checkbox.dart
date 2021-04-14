@@ -17,7 +17,7 @@ class MyCheckBox extends StatelessWidget {
       : checkExpr
       ? Image.asset('assets/images/icons/checkBoxFilled.png')
       : Image.asset('assets/images/icons/checkBoxEmpty.png');
-
+final isWindows = Platform.isWindows;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -32,8 +32,8 @@ class MyCheckBox extends StatelessWidget {
             onChange(value);
           },
           child: SizedBox(
-            height: 14,
-            width: 14,
+            height: isWindows ? 14 : 18,
+            width: isWindows ? 14 : 18,
             child: checkIcon,
           ),
         ),
