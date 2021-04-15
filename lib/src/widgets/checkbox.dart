@@ -7,7 +7,7 @@ class MyCheckBox extends StatelessWidget {
   final bool checkExpr;
   final Function onChange;
 
-  const MyCheckBox({
+  MyCheckBox({
     //@required this.label,
     @required this.checkExpr,
     @required this.onChange,
