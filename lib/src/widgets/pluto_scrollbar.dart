@@ -570,8 +570,8 @@ class Scrollbar extends StatefulWidget {
   /// except for when executing on [TargetPlatform.android], which will render the
   /// thumb without a radius.
   const Scrollbar({
-    Key? key,
-    required this.child,
+    Key key,
+    @required this.child,
     this.controller,
     this.isAlwaysShown,
     this.showTrackOnHover,
@@ -586,17 +586,17 @@ class Scrollbar extends StatefulWidget {
   final Widget child;
 
   /// {@macro flutter.widgets.Scrollbar.controller}
-  final ScrollController? controller;
+  final ScrollController controller;
 
   /// {@macro flutter.widgets.Scrollbar.isAlwaysShown}
-  final bool? isAlwaysShown;
+  final bool isAlwaysShown;
 
   /// Controls if the track will show on hover and remain, including during drag.
   ///
   /// If this property is null, then [ScrollbarThemeData.showTrackOnHover] of
   /// [ThemeData.scrollbarTheme] is used. If that is also null, the default value
   /// is false.
-  final bool? showTrackOnHover;
+  final bool showTrackOnHover;
 
   /// The thickness of the scrollbar when a hover state is active and
   /// [showTrackOnHover] is true.
@@ -604,7 +604,7 @@ class Scrollbar extends StatefulWidget {
   /// If this property is null, then [ScrollbarThemeData.thickness] of
   /// [ThemeData.scrollbarTheme] is used to resolve a thickness. If that is also
   /// null, the default value is 12.0 pixels.
-  final double? hoverThickness;
+  final double hoverThickness;
 
   /// The thickness of the scrollbar in the cross axis of the scrollable.
   ///
@@ -612,7 +612,7 @@ class Scrollbar extends StatefulWidget {
   /// the default thickness is 4.0 pixels. On [TargetPlatform.iOS],
   /// [CupertinoScrollbar.defaultThickness] is used. The remaining platforms have a
   /// default thickness of 8.0 pixels.
-  final double? thickness;
+  final double thickness;
 
   /// The [Radius] of the scrollbar thumb's rounded rectangle corners.
   ///
@@ -620,13 +620,13 @@ class Scrollbar extends StatefulWidget {
   /// no radius is applied to the scrollbar thumb. On [TargetPlatform.iOS],
   /// [CupertinoScrollbar.defaultRadius] is used. The remaining platforms have a
   /// default [Radius.circular] of 8.0 pixels.
-  final Radius? radius;
+  final Radius radius;
 
   /// {@macro flutter.widgets.Scrollbar.interactive}
-  final bool? interactive;
+  final bool interactive;
 
   /// {@macro flutter.widgets.Scrollbar.notificationPredicate}
-  final ScrollNotificationPredicate? notificationPredicate;
+  final ScrollNotificationPredicate notificationPredicate;
 
   @override
   _ScrollbarState createState() => _ScrollbarState();
@@ -668,16 +668,16 @@ class _ScrollbarState extends State<Scrollbar> {
 
 class _MaterialScrollbar extends RawScrollbar {
   const _MaterialScrollbar({
-    Key? key,
-    required Widget child,
-    ScrollController? controller,
-    bool? isAlwaysShown,
+    Key key,
+    @required Widget child,
+    ScrollController controller,
+    bool isAlwaysShown,
     this.showTrackOnHover,
     this.hoverThickness,
-    double? thickness,
-    Radius? radius,
-    ScrollNotificationPredicate? notificationPredicate,
-    bool? interactive,
+    double thickness,
+    Radius radius,
+    ScrollNotificationPredicate notificationPredicate,
+    bool interactive,
   }) : super(
           key: key,
           child: child,
@@ -693,8 +693,8 @@ class _MaterialScrollbar extends RawScrollbar {
           interactive: interactive,
         );
 
-  final bool? showTrackOnHover;
-  final double? hoverThickness;
+  final bool showTrackOnHover;
+  final double hoverThickness;
 
   @override
   _MaterialScrollbarState createState() => _MaterialScrollbarState();
@@ -752,16 +752,16 @@ class _MaterialScrollbarState extends RawScrollbarState<_MaterialScrollbar> {
 
     return MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.dragged))
-        return _scrollbarTheme.thumbColor?.resolve(states) ?? dragColor;
+        return _scrollbarTheme.thumbColor.resolve(states) ?? dragColor;
 
       // If the track is visible, the thumb color hover animation is ignored and
       // changes immediately.
       if (states.contains(MaterialState.hovered) && _showTrackOnHover)
-        return _scrollbarTheme.thumbColor?.resolve(states) ?? hoverColor;
+        return _scrollbarTheme.thumbColor.resolve(states) ?? hoverColor;
 
       return Color.lerp(
-        _scrollbarTheme.thumbColor?.resolve(states) ?? idleColor,
-        _scrollbarTheme.thumbColor?.resolve(states) ?? hoverColor,
+        _scrollbarTheme.thumbColor.resolve(states) ?? idleColor,
+        _scrollbarTheme.thumbColor.resolve(states) ?? hoverColor,
         _hoverAnimationController.value,
       )!;
     });
@@ -772,7 +772,7 @@ class _MaterialScrollbarState extends RawScrollbarState<_MaterialScrollbar> {
     final Brightness brightness = _colorScheme.brightness;
     return MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.hovered) && _showTrackOnHover) {
-        return _scrollbarTheme.trackColor?.resolve(states) ??
+        return _scrollbarTheme.trackColor.resolve(states) ??
             (brightness == Brightness.light
                 ? onSurface.withOpacity(0.03)
                 : onSurface.withOpacity(0.05));
@@ -786,7 +786,7 @@ class _MaterialScrollbarState extends RawScrollbarState<_MaterialScrollbar> {
     final Brightness brightness = _colorScheme.brightness;
     return MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.hovered) && _showTrackOnHover) {
-        return _scrollbarTheme.trackBorderColor?.resolve(states) ??
+        return _scrollbarTheme.trackBorderColor.resolve(states) ??
             (brightness == Brightness.light
                 ? onSurface.withOpacity(0.1)
                 : onSurface.withOpacity(0.25));
@@ -799,11 +799,11 @@ class _MaterialScrollbarState extends RawScrollbarState<_MaterialScrollbar> {
     return MaterialStateProperty.resolveWith((Set<MaterialState> states) {
       if (states.contains(MaterialState.hovered) && _showTrackOnHover)
         return widget.hoverThickness ??
-            _scrollbarTheme.thickness?.resolve(states) ??
+            _scrollbarTheme.thickness.resolve(states) ??
             _kScrollbarThicknessWithTrack;
       // The default scrollbar thickness is smaller on mobile.
       return widget.thickness ??
-          _scrollbarTheme.thickness?.resolve(states) ??
+          _scrollbarTheme.thickness.resolve(states) ??
           (_kScrollbarThickness / (_useAndroidScrollbar ? 2 : 1));
     });
   }
