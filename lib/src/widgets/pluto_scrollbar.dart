@@ -497,7 +497,7 @@ const Duration _kScrollbarTimeToFade = Duration(milliseconds: 600);
 /// [showTrackOnHover]. The thickness of the track and scrollbar thumb will
 /// become larger when hovering, unless overridden by [hoverThickness].
 ///
-/// {@tool dartpad --template=stateless_widget_scaffold}
+/// {@tool dartpad --temp=stateless_widget_scaffold}
 /// This sample shows a [Scrollbar] that executes a fade animation as scrolling occurs.
 /// The Scrollbar will fade into view as the user scrolls, and fade out when scrolling stops.
 /// ```dart
@@ -518,7 +518,7 @@ const Duration _kScrollbarTimeToFade = Duration(milliseconds: 600);
 /// ```
 /// {@end-tool}
 ///
-/// {@tool dartpad --template=stateful_widget_scaffold}
+/// {@tool dartpad --temp=stateful_widget_scaffold}
 /// When isAlwaysShown is true, the scrollbar thumb will remain visible without the
 /// fade animation. This requires that a ScrollController is provided to controller,
 /// or that the PrimaryScrollController is available.
@@ -701,13 +701,13 @@ class _MaterialScrollbar extends RawScrollbar {
 }
 
 class _MaterialScrollbarState extends RawScrollbarState<_MaterialScrollbar> {
-  late AnimationController _hoverAnimationController;
+   AnimationController _hoverAnimationController;
   bool _dragIsActive = false;
   bool _hoverIsActive = false;
-  late ColorScheme _colorScheme;
-  late ScrollbarThemeData _scrollbarTheme;
+   ColorScheme _colorScheme;
+   ScrollbarThemeData _scrollbarTheme;
   // On Android, scrollbars should match native appearance.
-  late bool _useAndroidScrollbar;
+   bool _useAndroidScrollbar;
 
   @override
   bool get showScrollbar =>
@@ -730,9 +730,9 @@ class _MaterialScrollbarState extends RawScrollbarState<_MaterialScrollbar> {
   MaterialStateProperty<Color> get _thumbColor {
     final Color onSurface = _colorScheme.onSurface;
     final Brightness brightness = _colorScheme.brightness;
-    late Color dragColor;
-    late Color hoverColor;
-    late Color idleColor;
+     Color dragColor;
+     Color hoverColor;
+     Color idleColor;
     switch (brightness) {
       case Brightness.light:
         dragColor = onSurface.withOpacity(0.6);
