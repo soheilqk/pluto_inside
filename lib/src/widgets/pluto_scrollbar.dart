@@ -554,7 +554,7 @@ const Duration _kScrollbarTimeToFade = Duration(milliseconds: 600);
 ///  * [CupertinoScrollbar], an iOS style scrollbar.
 ///  * [ListView], which displays a linear, scrollable list of children.
 ///  * [GridView], which displays a 2 dimensional, scrollable array of children.
-class Scrollbar extends StatefulWidget {
+class PlutoScrollbar extends StatefulWidget {
   /// Creates a material design scrollbar that by default will connect to the
   /// closest Scrollable descendant of [child].
   ///
@@ -569,7 +569,7 @@ class Scrollbar extends StatefulWidget {
   /// of an 8.0 pixel circular radius about the corners of the scrollbar thumb,
   /// except for when executing on [TargetPlatform.android], which will render the
   /// thumb without a radius.
-  const Scrollbar({
+  const PlutoScrollbar({
     Key key,
     @required this.child,
     this.controller,
@@ -629,10 +629,10 @@ class Scrollbar extends StatefulWidget {
   final ScrollNotificationPredicate notificationPredicate;
 
   @override
-  _ScrollbarState createState() => _ScrollbarState();
+  _PlutoScrollbarState createState() => _PlutoScrollbarState();
 }
 
-class _ScrollbarState extends State<Scrollbar> {
+class _PlutoScrollbarState extends State<PlutoScrollbar> {
   bool get _useCupertinoScrollbar =>
       Theme.of(context).platform == TargetPlatform.iOS;
 
